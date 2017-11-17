@@ -1,0 +1,45 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.content {
+    background-color: #eee;
+    border: 1px solid black;
+    padding: 10px;
+}
+
+.content > h1 {
+    margin-bottom: 15px;
+}
+
+.table-form {
+    display: table;
+    width: 80%;
+    margin: auto;
+}
+
+.table-form-row {
+    display: table-row;
+}
+
+.table-form-cell {
+    padding: 5px;
+    display: table-cell;
+}
+
+.table-form-cell > * {
+    display: inline-block;
+    padding: 5px;
+}

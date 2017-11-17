@@ -1,0 +1,28 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.content,
+.content > * {
+    text-align: center;
+}
+
+.content > h1 {
+    margin-bottom: 15px;
+}
+
+.content > h2 {
+    margin-top: 15px;
+}
