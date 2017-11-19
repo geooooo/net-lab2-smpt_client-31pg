@@ -13,13 +13,13 @@ def send_mail(data):
     """
 
     # Хост и порт SMTP-сервера
-    HOST = "smtp-devices.yandex.com"
-    PORT = 25
+    HOST = "mail.edm-core.ru"
+    PORT = 587
     TIMEOUT = 5
     MSG_LEN = 1024
-    LOGIN = "kornienko.yury2017"
-    MAIL = "kornienko.yury2017@yandex.ru"
-    PWD = "yandexpassword1251"
+    LOGIN = "test@edm-core.ru"
+    MAIL = "test@edm-core.ru"
+    PWD = "123qwerty123"
 
     # Обработка данных формы
     to = data["to"].strip()
@@ -32,13 +32,15 @@ def send_mail(data):
     client_socket.connect((HOST, PORT))
 
     # Подключение к почтовому серверу
-    code, server_name, *other = client_socket.recv(MSG_LEN).decode("utf-8").split(" ")
+    code_server_name, *other = client_socket.recv(MSG_LEN).decode("utf-8").split(" ")
+    code, *server_name = code_server_name.split("-")
+    server_name = "-".join(server_name)
     if code != "220":
         client_socket.close()
         return "Ошибка при подключении к почтовому серверу !"
 
-    client_socket.send(("HELO " + server_name + "\n").encode("utf-8"))
-    code, *other = client_socket.recv(MSG_LEN).decode("utf-8").split()
+    client_socket.send(("EHLO " + server_name + "\n").encode("utf-8"))
+    code, *other = client_socket.recv(MSG_LEN).decode("utf-8").split("-")
     if code != "250":
         client_socket.close()
         return "Ошибка при идентификации клиента !"
