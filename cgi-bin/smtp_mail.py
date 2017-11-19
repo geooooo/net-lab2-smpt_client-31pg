@@ -17,6 +17,7 @@ def send_mail(data):
     PORT = 587
     TIMEOUT = 5
     MSG_LEN = 1024
+
     LOGIN = "test@edm-core.ru"
     MAIL = "test@edm-core.ru"
     PWD = "123qwerty123"
