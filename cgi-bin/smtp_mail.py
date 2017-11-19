@@ -18,8 +18,8 @@ def send_mail(data):
     TIMEOUT = 5
     MSG_LEN = 1024
     LOGIN = "kornienko.yury2017"
-    MAIL = "kornienko.yury2017@yandex.ru"
-    PWD = "yandexpassword1251"
+    MAIL = "***"
+    PWD = "***"
 
     # Обработка данных формы
     to = data["to"].strip()
